@@ -4,12 +4,13 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <array>
 
 class Student {
 private:
-    char name[200];
+    std::array<char, 200> name;
     std::vector<int> date;
-    char number[100];
+    std::array<char, 100> number;
     std::string city;
     std::string country;
     std::string name_of_EI;
@@ -17,8 +18,8 @@ private:
     short number_group;
 
 public:
-    Student(char* name, std::vector<int> dates_of_birth, char* number, std::string city, std::string country, std::string name_of_EI, std::string city_and_country_where_located, short number_group);
-    Student(const Student& obj);
+    Student(std::array<char, 200> name, std::vector<int> dates_of_birth, std::array<char, 100> number, std::string city, std::string country, std::string name_of_EI, std::string city_and_country_where_located, short number_group);
+    Student(Student&& obj) noexcept;
     void setter_name();
     void setter_number();
     void setter_date_of_birth();
